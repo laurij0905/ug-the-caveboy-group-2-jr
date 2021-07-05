@@ -23,7 +23,7 @@ let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`myImage2`)
 pause(2000)
 mySprite = sprites.create(assets.image`Ug`, SpriteKind.Player)
-mySprite.setPosition(44, 99)
+mySprite.setPosition(44, 105)
 controller.moveSprite(mySprite)
 scene.setBackgroundImage(assets.image`cave`)
 mySprite.setStayInScreen(true)
