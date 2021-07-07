@@ -31,10 +31,11 @@ function Walk_On_Floor (mySprite: Sprite) {
         mySprite.y += 1
     }
 }
+let home_meal: Sprite = null
 let mySprite: Sprite = null
-scene.setBackgroundImage(assets.image`cave man back drop`)
-pause(2000)
 scene.setBackgroundImage(assets.image`UG kills Mamoth`)
+pause(2000)
+scene.setBackgroundImage(assets.image`cave man back drop`)
 pause(2000)
 scene.setBackgroundImage(assets.image`myImage2`)
 info.startCountdown(60)
@@ -64,7 +65,18 @@ forever(function () {
         2000,
         false
         )
-        pause(2000)
+        pause(1000)
         info.changeScoreBy(1)
+        scene.setBackgroundImage(assets.image`enterance to house`)
+        mySprite.setPosition(8, 101)
+        home_meal = sprites.create(assets.image`home meal`, SpriteKind.Food)
+        home_meal.setPosition(132, 93)
+    }
+    if (mySprite.overlapsWith(home_meal)) {
+        pause(1000)
+        info.changeScoreBy(10)
+        scene.setBackgroundImage(assets.image`the house`)
+        mySprite.setPosition(8, 101)
+        home_meal.setPosition(105, 86)
     }
 })
