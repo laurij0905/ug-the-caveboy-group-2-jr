@@ -32,9 +32,13 @@ function Walk_On_Floor (mySprite: Sprite) {
     }
 }
 let mySprite: Sprite = null
+scene.setBackgroundImage(assets.image`cave man back drop`)
+pause(2000)
+scene.setBackgroundImage(assets.image`UG kills Mamoth`)
+pause(2000)
+scene.setBackgroundImage(assets.image`myImage2`)
 info.startCountdown(60)
 info.setLife(10)
-scene.setBackgroundImage(assets.image`myImage2`)
 pause(2000)
 let myEnemy = sprites.create(assets.image`bat`, SpriteKind.Player)
 let rock = sprites.create(assets.image`boulder`, SpriteKind.target)
