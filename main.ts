@@ -31,7 +31,7 @@ function Walk_On_Floor (mySprite: Sprite) {
         mySprite.y += 1
     }
 }
-let home_meal: Sprite = null
+let meal: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`UG kills Mamoth`)
 pause(2000)
@@ -47,9 +47,7 @@ rock.setPosition(152, 107)
 mySprite = sprites.create(assets.image`Ug`, SpriteKind.Player)
 mySprite.setPosition(44, 105)
 controller.moveSprite(mySprite)
-scene.setBackgroundImage(assets.image`cave`)
-mySprite.setStayInScreen(true)
-mySprite.setBounceOnWall(true)
+tiles.setTilemap(tilemap`level1`)
 forever(function () {
     myEnemy.setVelocity(5, 5)
     myEnemy.follow(mySprite)
@@ -69,14 +67,19 @@ forever(function () {
         info.changeScoreBy(1)
         scene.setBackgroundImage(assets.image`enterance to house`)
         mySprite.setPosition(8, 101)
-        home_meal = sprites.create(assets.image`home meal`, SpriteKind.Food)
-        home_meal.setPosition(132, 93)
+        meal = sprites.create(assets.image`home meal`, SpriteKind.Food)
+        meal.setPosition(132, 93)
     }
-    if (mySprite.overlapsWith(home_meal)) {
-        pause(1000)
+})
+forever(function () {
+    meal = sprites.create(assets.image`home meal`, SpriteKind.Food)
+    if (mySprite.overlapsWith(meal)) {
+        pause(100)
         info.changeScoreBy(10)
-        scene.setBackgroundImage(assets.image`the house`)
+        pause(100)
         mySprite.setPosition(8, 101)
-        home_meal.setPosition(105, 86)
+        meal.setPosition(105, 86)
+        pause(100)
+        scene.setBackgroundImage(assets.image`the house`)
     }
 })
